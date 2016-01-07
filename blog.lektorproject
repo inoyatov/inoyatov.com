@@ -5,4 +5,4 @@ name = Personal Blog
 lektor-disqus-comments = 0.2
 
 [servers.ghpages]
-target = ghpages+https://antindexer/personal-blog/
+target = ghpages+https://inoyatov/inoyatov.github.com/?www.inoyatov.com
