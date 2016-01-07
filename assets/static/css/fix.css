@@ -1,0 +1,21 @@
+/* Blog role fixes */
+
+div.blog-title>div>h2 {
+}
+
+div.blog-title-separator>div>hr {
+	margin-top: 0;
+	margin-bottom: 10px;
+}
+
+div.blog-assets>div {
+	margin-bottom: 6px;
+	color: #777;
+}
+
+@media (min-width: 479px) {	
+	div.blog-assets {
+		display: inline-block;
+		padding-right: 10px
+	}
+}

@@ -1,0 +1,8 @@
+[project]
+name = Personal Blog
+
+[packages]
+lektor-disqus-comments = 0.2
+
+[servers.ghpages]
+target = ghpages+https://antindexer/personal-blog/
