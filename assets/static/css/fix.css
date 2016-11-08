@@ -19,3 +19,25 @@ div.blog-assets>div {
 		padding-right: 10px
 	}
 }
+
+/* Journal role fixes */
+
+div.journal-title>div>h2 {
+}
+
+div.journal-title-separator>div>hr {
+	margin-top: 0;
+	margin-bottom: 10px;
+}
+
+div.journal-assets>div {
+	margin-bottom: 6px;
+	color: #777;
+}
+
+@media (min-width: 479px) {	
+	div.journal-assets {
+		display: inline-block;
+		padding-right: 10px
+	}
+}
