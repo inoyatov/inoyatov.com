@@ -40,4 +40,9 @@ div.journal-assets>div {
 		display: inline-block;
 		padding-right: 10px
 	}
+
+	nav#lektor-navbar {
+		border-radius: 0!important;
+	}
 }
+
