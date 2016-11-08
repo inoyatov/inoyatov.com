@@ -1,7 +1,7 @@
 {#
 {% from "macros/datetime.html" import render_datetime %}
-{% macro render_blog_post(post, from_index=false) %}
-  <div class="blog-post">
+{% macro render_journal_post(post, from_index=false) %}
+  <div class="journal-post">
   {% if from_index %}
     <h2><a href="{{ post|url }}">{{ post.title }}</a></h2>
   {% else %}
@@ -24,8 +24,8 @@
 #}
 
 {% from "macros/datetime.html" import render_datetime %}
-{% macro render_blog_post(post, from_index=false) %}
-	<div class="row blog-title">
+{% macro render_journal_post(post, from_index=false) %}
+	<div class="row journal-title">
 		<div class="col-md-12">
 		{% if from_index %}
 			<h2><a href="{{ post|url }}">{{ post.title }}</a></h2>
@@ -34,14 +34,14 @@
 		{% endif %}
 		</div>
 	</div>
-	<div class="row blog-title-separator">
+	<div class="row journal-title-separator">
 		<div class="col-md-12">
 			<hr>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-lg-2">
-			<div class="row blog-assets">
+			<div class="row journal-assets">
 				<div class="col-md-12">
 					<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
 					{% if post.twitter_handle %}
@@ -53,7 +53,7 @@
 					{% endif %}
 				</div>
 			</div>
-			<div class="row blog-assets">
+			<div class="row journal-assets">
 				<div class="col-md-12">
 					<span class="glyphicon glyphicon-time" aria-hidden="true"></span>
 					{{ render_datetime(post.pub_date) }}
