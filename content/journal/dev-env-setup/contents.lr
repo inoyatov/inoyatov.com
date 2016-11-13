@@ -1,0 +1,17 @@
+title: Things todo after getting new Macbook Pro
+---
+pub_date: 2016-11-13
+---
+author: Khamidulla Inoyatov
+---
+body:
+
+Development settings after getting fresh copy of Mac OS or new Macbook Pro.
+	- Install terminal color (Solorized)
+	- Configure `.bash_profile`
+	- Configure `.vimrc and .vim/` 
+	- Configure `tmux`
+	- Configure `ssh` keys for github, bitbucket and etc.
+	- Recommended apps for developers
+
+If listings became clickable it means I completed article about how to acomplish certain part of Mac OS setup. Follow me.
