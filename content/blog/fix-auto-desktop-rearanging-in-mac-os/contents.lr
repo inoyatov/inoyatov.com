@@ -14,26 +14,22 @@ any problem. By googling I found solution but I decided to share with my readers
 having similar issues like me and want to fix it until the end of the days, then follow
 my step by step instruction.
 
-Step One
---------
+####Step One
 Click on Apple Icon at the top left cornet display like in picture below. And select "System Preferances".
 
 ![Select "System Preferances" from top left menu under Apple icon.](./screen-01.jpg)
 
-Step Two
---------
+####Step Two
 From "System Preferances" window select "Mission Control"
 
 ![Mission Control" from "System Preferances" window' class="img-rounded](./screen-02.jpg)
 
-Step Three 
---------
+####Step Three 
 From "Mission Control" window unselect "Automatically Rearange Spaces based on most recent usage"
 
 ![Automatically Rearange Spaces based on most recent usage" option from "Mission Control"](./screen-03.jpg)
 
-Step Four 
---------
+####Step Four 
 Close "Mission Control" window. However be sure that it looks like picture given below.
 
 ![Close "Mission Control" window](./screen-04.jpg)
