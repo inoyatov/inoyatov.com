@@ -1,6 +1,6 @@
 title: How to rename git branch locally and remotely in cli
 ---
-pub_date: 2015-12-30
+pub_date: 2016-12-19
 ---
 author: Khamidulla Inoyatov
 ---
@@ -12,10 +12,10 @@ branch which i created early. In order to keep this information some where I dec
 day life it is easy to forgot. 
 
 ```
-// Rename branch locally
+# Rename branch locally
 git branch -m old_branch new_branch
-// Delete the old branch
+# Delete the old branch
 git push origin :old_branch
-// Push the new branch, set local branch to track the new remote
+# Push the new branch, set local branch to track the new remote
 git push --set-upstream origin new_branch
 ```
