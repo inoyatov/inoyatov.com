@@ -1,4 +1,4 @@
 language: python
 python: 2.7
-install: "pip install Lektor>=2.3, pygments-style-github"
+install: "pip install Lektor pygments-style-github"
 script: "lektor build && lektor deploy ghpages"
