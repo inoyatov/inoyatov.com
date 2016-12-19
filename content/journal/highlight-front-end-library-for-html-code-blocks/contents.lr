@@ -1,0 +1,34 @@
+title: Highlight front end library for HTML code blocks 
+---
+pub_date: 2016-12-19
+---
+author: Khamidulla Inoyatov
+---
+body:
+
+This journal entry for testing code block highlightning with highlight.js front end library.
+
+This is Bash code block entry:
+
+```bash
+# Rename branch locally
+git branch -m old_branch new_branch
+# Delete the old branch
+git push origin :old_branch
+# Push the new branch, set local branch to track the new remote
+git push --set-upstream origin new_branch
+```
+
+This is Python code block entry:
+
+```python
+#!/usr/bin/env python
+
+
+def main():
+	print("Hello world")
+
+
+if __name__ == "__main__":
+	main()
+```
