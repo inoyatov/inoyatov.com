@@ -6,8 +6,6 @@ author: Khamidulla Inoyatov
 ---
 body:
 
-# Security Paranoia or How to secure encrypt disks in Ubuntu Linux
-
 I got brand new Dell Latitude E7470 laptop from my company since I used old one for last three years. Although this blog post is not about how awesome that particular laptop, even it has many advantages over Macbook Pro which I bought couple of weeks early. This blog post about how to secure your Ubuntu installation by employing ‘Linux Unified Key Setup’[^[Linux Unified Key Setup](https://en.wikipedia.org/wiki/Linux_Unified_Key_Setup)] (LUKS for the short) disk encryption, which can encrypt your `root`, `swap`, `home` and other disks except `boot` partition. Moreover steps below can be used for all types of laptop as well as desktop PC. So you can continue reading if you have paranoia like me or desparate will to learn and get hands on experience about new things related to security. However you should understand that it will slow down your Ubuntu 16.04 LTS OS performance comparing with pure installation due to overhead which will be caused by encrypted write and read operations. Before begin to proceed I urge you to take two essential steps. Firstly please do backup all necessary data from your PC to cloud or spare hard drive. Secondly I advise you to go through below steps and familiarize yourself with commands in order to get better understanding about what you will do in next couple of hours of your life. Also I beg you do not proceed if you can’t understand commands below in advance.
 
 ## Prerequisites 
