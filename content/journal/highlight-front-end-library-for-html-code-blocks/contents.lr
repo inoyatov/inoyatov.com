@@ -21,6 +21,9 @@ git push --set-upstream origin new_branch
 
 This is Python code block entry:
 
+##### **Markdown:**
+
+````
 ```python
 #!/usr/bin/env python
 
@@ -32,3 +35,37 @@ def main():
 if __name__ == "__main__":
 	main()
 ```
+````
+
+##### **Generated visual code block:**
+
+```python
+#!/usr/bin/env python
+
+
+def main():
+	print("Hello world")
+
+
+if __name__ == "__main__":
+	main()
+```
+
+Backtick escape in markdown:
+
+##### **Markdown:**
+
+`````
+````
+```
+some code
+```
+````
+`````
+
+##### **Generated visual code block:**
+````
+```
+some code
+```
+````
