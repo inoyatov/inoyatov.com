@@ -1,0 +1,64 @@
+title: Security Paranoia or How to secury encrypt disks in Ubuntu Linux 
+---
+pub_date: 2016-12-17
+---
+author: Khamidulla Inoyatov
+---
+body:
+
+# Security Paranoia or How to secure encrypt disks in Ubuntu Linux
+
+I got brand new Dell Latitude E7470 laptop from my company since I used old one for last three years. Although this blog post is not about how awesome that particular laptop, even it has many advantages over Macbook Pro which I bought couple of weeks early. This blog post about how to secure your Ubuntu installation by employing ‘Linux Unified Key Setup’[^[Linux Unified Key Setup](https://en.wikipedia.org/wiki/Linux_Unified_Key_Setup)] (LUKS for the short) disk encryption, which can encrypt your `root`, `swap`, `home` and other disks except `boot` partition. Moreover steps below can be used for all types of laptop as well as desktop PC. So you can continue reading if you have paranoia like me or desparate will to learn and get hands on experience about new things related to security. However you should understand that it will slow down your Ubuntu 16.04 LTS OS performance comparing with pure installation due to overhead which will be caused by encrypted write and read operations. Before begin to proceed I urge you to take two essential steps. Firstly please do backup all necessary data from your PC to cloud or spare hard drive. Secondly I advise you to go through below steps and familiarize yourself with commands in order to get better understanding about what you will do in next couple of hours of your life. Also I beg you do not proceed if you can’t understand commands below in advance.
+
+## Prerequisites 
+Hands on experience on installation of Ubuntu OS before is mandatory. Moreover since Ubuntu 16.04 LTS and previous versions do not support ‘Full Disk Encryption’ I recommend to install `boot` partition to separate USB stick or SD card. So you will need USB or SD card with 4GB or more(in my installation I used SD card). Moreover you need to prepare Ubuntu 16.04 LTS Live DVD or USB stick. The details of how you can make one will not be covered in this blog post. So if you do not knew how to do it please poke around in google yourself. There are many great blog posts and how-to materials over Internet.
+   
+## LUKS based LVM Disk Encryption on Ubuntu 16.04 LTS Linux
+
+* Step 1: Boot from live DVD or USB stick in UEFI mode with disabled secure boot bios option if it is enabled before and select ‘Try Ubuntu’ from *grub* menu.
+* Step 2: Insert SD card or USB stick and create GPT(GUID Partition Table) partition, not MBR(Master Boot Record). In this step you can use ‘GPARTED’ GUI partition manager tool or command line tools like `parted`, `fdisk` or any tool of your choice. This external memory disk will be used in order to keep your `efi` and `boot` data.
+* Step 3: Create two partitions on USB stick and format it with following specifications.
+    * Partion #1: `FAT32` with at most 1GB space and label `EFI` which will be mounted under boots `/boot/efi` directory.
+    * Partion #2: `EXT2` with at least 2GB or more and label `BOOT` which will be mounted under systems `/boot` directory. If you regularly update your linux image this directory can grow rapidly and block you from updating your system. If you have large enough space you can free from clearing it for year.
+* Step 4: In this step you should again create GPT partition for your main hard drive where you will keep LVM partition with `root`, `swap`, `home` and other.
+* Step 5: Once you created partition GPT hard drive you can guess that in this step you should format your partition. You are not entirely wrong. However you will format it in different way then **Step#3** of this how-to. Because in this step you will create secure LUKS container by formatting it and mounting it to the system under `CryptDisk` with password. Please note for security reasons you should choose recommended length of password[^[How long should the password be?](http://security.stackexchange.com/questions/144/how-long-should-the-password-be)] which consist upper, lower characters, symbols and numbers. In order to do so you should also know your device path which can be as follows: `/dev/sdX` where X stands for your drive’s letters unique letter. In my case it was `/dev/sda`. So in further steps I will use this device path in order to refer to my main hard drive.
+```
+sudo cryptsetup luksFormat --chipher twofish-xts-plain64 --key-size 512 --hash sha512 --iter-time 2000 /dev/sda
+sudo cryptsetup luksOpen /dev/sda CryptDisk
+```
+If you notice in LUKS format command’s key size says 512, this is because of how XTS mode works. Where half of the key space is used for the key itself and the remaining half will be used the cipher mode so this results in a 256 bit key. 
+* Step 6: In this step we will create LVM volume group with mandatory `root`, `swap` and `home` logical volumes inside the mounted LUKS formatted hard drive. `home` logical volume is not mandatory but I really recommend to do so in order to separate user files from system files. It will be useful if you decide later update or reinstall your system without destroying your `home` directory since `home` is mounted under systems `/home` directory while root partition will be mounted under `/` directory.
+```
+sudo pvcreate /dev/mapper/CryptDisk
+sudo vgcreate lvm-vg /dev/mappter/CryptDisk
+sudo lvcreate -n root -L 100g lvm-vg
+sudo lvcreate -n swap -L 8g lvm-vg
+sudo lvcreate -n home -l 100%FREE
+```
+For more information about `pvcreate`, `vgcreate` and `vgcreate` you can look up using `man name-of-command` in terminal. The option worth of mentioning here is size of `root` logical volume. By requirement of Ubuntu 16.04 LTS[^[Recommended system requirements](https://www.ubuntu.com/download/desktop)] the size of for system should no less then 25G which does not include `swap`, but does include `home`. However I have 256GB I decided to give 100GB for `root` partition and 8Gb for `swap` since I have 16Gb of RAM. The old rule for `swap` partitions size calculation is not used, where it calculated as two times of physical RAM memory. Lastly if notice size for `home` specified by lower case `-l` option where size given as `100%FREE` which means remaining free space will be allocated for current partition.
+* Step 7: Now we will create filesystem for logical volumes(`root`, `swap`, and `home` partitions). Although this step can be omitted since it is also possible to do it directly from installer. But I personally prefer command line way.
+```
+sudo mkfs.ext4 /dev/mapper/lv-vg-root
+sudo mkswap /dev/mapper/lv-vg-swap
+sudo mkfs.ext4 /dev/mapper/lv-vg-home
+```
+* Step 8: Now you ready to install Ubuntu 16.04 LTS using graphical mode. For reference you can use official installation steps which is given by following [link](https://www.ubuntu.com/download/desktop/install-ubuntu-desktop). However in ‘Allocate drive space’ chose ‘Something else’ and assign `/` to `/dev/mapper/lv-vg-root`, `home` to `dev/mapper/lv-vg-home`, `/boot` to `/dev/sdb1/`, `/boot/efi` to `/dev/sdb2/`. And boot loader should be installed into `/dev/sdb`. Where `/dev/sdb` is spare USB stick or SD card and `/dev/sdb1`, `/dev/sdb2` are partitions which is created early. (**Note**: You can find out which device label belongs to which by using `lsblk` command. For more information read `man` page)
+* Step 9: At the end of GUI installation step choose ‘Continue testing’ option and open terminal application.
+* Step 10: For next step we need to know UUID of the LUKS partitions (/dev/sda in my case in your case it can be different).
+```
+sudo blkid /dev/sda
+```
+* Step 11: In this step we will mount `root`, `home`, `boot`, `efi` under `/mnt/root` directory and change execute change root[^[Change root](https://wiki.archlinux.org/index.php/change_root)] operation. Afterwards we will mount device pseudo-tty file system, system pseudo-file system and process information pseudo-file system.
+```
+sudo mkdir -p /mnt/root
+sudo mount /dev/mapper/lvm-vg-root /mnt/root
+sudo mount /dev/mapper/lvm-home /mnt/root/home
+sudo mount /dev/sda2 /mnt/root/boot
+sudo mount /dev/sda1 /mnt/root/boot/efi
+sudo chroot /mnt/root
+> mount -t proc proc /proc
+> mount -t sysfs sys /sys
+> mount -t devpts devpts /dev/pts
+```
+* Step 12: Create a file named `crypttab` with following content under `/etc` folder in `chrooted` environment.  
+`CryptDisk UUID=30fcb748-ad1e-4228-af2f-951e8e7b56df none looks,retry=1,lvm=lvm-vg`
