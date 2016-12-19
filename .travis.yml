@@ -2,3 +2,8 @@ language: python
 python: 2.7
 install: "pip install Lektor pygments-style-github"
 script: "lektor build && lektor deploy ghpages"
+
+# safelist
+branches:
+    only:
+        - master
