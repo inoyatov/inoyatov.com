@@ -3,6 +3,7 @@ name = Personal Blog
 
 [packages]
 lektor-disqus-comments = 0.2
+lektor-markdown-highlighter = 0.1
 
 [servers.ghpages]
 target = ghpages+https://inoyatov/inoyatov.github.com/?cname=www.inoyatov.com

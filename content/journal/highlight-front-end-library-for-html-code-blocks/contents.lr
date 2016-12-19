@@ -8,7 +8,7 @@ body:
 
 This journal entry for testing code block highlightning with highlight.js front end library.
 
-This is Bash code block entry:
+This is BASH code block entry:
 
 ```bash
 # Rename branch locally
@@ -21,6 +21,10 @@ git push --set-upstream origin new_branch
 
 This is Python code block entry:
 
+<pre>
+
+</pre>
+
 ```python
 #!/usr/bin/env python
 
@@ -32,3 +36,5 @@ def main():
 if __name__ == "__main__":
 	main()
 ```
+
+*[BASH]: Bourne-again shell
