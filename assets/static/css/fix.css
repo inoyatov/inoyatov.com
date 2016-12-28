@@ -1,4 +1,6 @@
+/* --------------------------------------- */
 /* Blog role fixes */
+/* --------------------------------------- */
 
 div.blog-title>div>h2 {
 }
@@ -18,9 +20,30 @@ div.blog-assets>div {
 		display: inline-block;
 		padding-right: 10px
 	}
+
+	nav#lektor-navbar {
+		border-radius: 0!important;
+	}
 }
 
+div.blog-content img {
+	display: inline-block;
+	max-width: 100%;
+	height: auto;
+	padding: 4px;
+	line-height: 1.42857143;
+	background-color: #fff;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	-webkit-transition: all .2s ease-in-out;
+	-o-transition: all .2s ease-in-out;
+	transition: all .2s ease-in-out;
+}
+/* --------------------------------------- */
+
+/* --------------------------------------- */
 /* Journal role fixes */
+/* --------------------------------------- */
 
 div.journal-title>div>h2 {
 }
@@ -46,11 +69,7 @@ div.journal-assets>div {
 	}
 }
 
-pre {
-	padding: 0!important;
-}
-
-div.blog-content img {
+div.journal-content img {
 	display: inline-block;
 	max-width: 100%;
 	height: auto;
@@ -62,4 +81,9 @@ div.blog-content img {
 	-webkit-transition: all .2s ease-in-out;
 	-o-transition: all .2s ease-in-out;
 	transition: all .2s ease-in-out;
+}
+/* --------------------------------------- */
+
+pre {
+	padding: 0!important;
 }
