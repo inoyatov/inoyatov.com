@@ -48,5 +48,5 @@ java -classpath /usr/share/java/gtk.jar:. NotiApp
 
 Result should look like something like this:
 
-![Notification Example in Ubuntu Linux](./notification.png)
+![Notification Example in Ubuntu Linux](notification.png)
 
