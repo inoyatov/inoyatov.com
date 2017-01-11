@@ -1,0 +1,24 @@
+title: Beginning of story
+---
+pub_date: 2017-01-11
+---
+author: Khamidulla Inoyatov
+---
+body:
+
+Store starts when I decided to learn copy writer skills, in order to became blogger. So I pickup easy usable tools from internet. I pick iPad for my tasks and smart keyboard since my iPad Pro supports it. So I started typing different length of sentences in Ulysses. It is so much easy with just typing here. I can make journal from this. I have domain name already bought from internet. Perhaps I should use it. So it will be good If I will be able to do some more things with this tool. I should figure out how to post this article to github. So it will be so 
+![Desk Samarkand](test.jpeg)
+
+```python
+#!/usr/bin/env python
+
+
+def main():
+   print("Hello world")
+
+if __name__ == "__main__":
+    main()
+```
+<script src="https://gist.github.com/813776f1483b5fecd97f1dfe3ac47a60.js"></script>
+
+<script src="https://gist.github.com/a66dfd07db7cb6f16b8407cc600f8821.js"></script>
