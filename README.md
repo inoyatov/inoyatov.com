@@ -2,3 +2,6 @@
 
 ## Personal Blog
 Will be added later
+
+## TODO:
+- [ ] Add things to do
