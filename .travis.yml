@@ -1,14 +1,14 @@
 addons:
-  apt:
-    packages:
-      - python-pygments
+    apt:
+        packages:
+            - python-pygments
 
 install:
-  - rm -rf public || exit 0
+    - rm -rf public || exit 0
 
 script:
-  - binaries/hugo --theme=blogus
-  - echo 'www.inoyatov.com' > public/CNAME
+    - binaries/hugo --theme=blogus
+    - echo 'www.inoyatov.com' > public/CNAME
 
 deploy:
     provider: pages
@@ -19,5 +19,5 @@ deploy:
         branch: ghpages
 
 branches:
-	only:
-    	- master
+    only:
+        - master
