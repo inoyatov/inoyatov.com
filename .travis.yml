@@ -17,7 +17,3 @@ deploy:
     local_dir: public
     on:
         branch: ghpages
-
-branches:
-    only:
-        - master
