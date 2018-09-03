@@ -1,0 +1,7 @@
+baseURL = "/"
+languageCode = "en-us"
+title = "Tiny, and Perfect Programmer Blog"
+author = "Khamidulla Inoyatov"
+disqusShortname = "inoyatov-khamidulla"
+pygmentsUseClassic = true
+pygmentsUseClasses = true

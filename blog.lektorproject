@@ -1,8 +1,0 @@
-[project]
-name = Personal Blog
-
-[packages]
-lektor-disqus-comments = 0.2
-
-[servers.ghpages]
-target = ghpages+https://inoyatov/inoyatov.github.com/?cname=www.inoyatov.com

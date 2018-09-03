@@ -1,0 +1,41 @@
+{{ $section_name := (index (split (trim .URL "/") "/") 0) }}
+</pre>
+<header id="site_header" class="header mobile-menu-hide">
+  <div class="header-content">
+    <div class="site-title-block mobile-hidden">
+      <div class="site-title">Khamidulla <span>Inoyatov</span></div>
+    </div>
+
+    <div class="site-nav">
+
+      <ul id="nav" class="site-main-menu">
+        <li class="{{ if .IsHome }}active{{ end }}">
+          <a href="/">Home</a>
+        </li>
+        <li class="{{ if eq $section_name "resume" }}active{{ end }}">
+          <a href="/resume">Resume</a>
+        </li>
+        <li class="{{ if eq $section_name "blog" }}active{{ end }}">
+          <a href="/blog">Blog</a>
+        </li>
+        <li class="{{ if eq $section_name "contact" }}active{{ end }}">
+          <a href="/contact">Contact</a>
+        </li>
+      </ul>
+
+    </div>
+
+  </div>
+</header>
+
+
+
+<div class="mobile-header mobile-visible">
+  <div class="mobile-logo-container">
+    <div class="mobile-site-title">Khamidulla Inoyatov</div>
+  </div>
+
+  <a class="menu-toggle mobile-visible">
+    <i class="fa fa-bars"></i>
+  </a>
+</div>

@@ -1,0 +1,56 @@
+{{ define "main" }}
+
+<div id="main" class="site-main">
+  <!-- Single Page Content -->
+  <div class="single-page-content">
+    <div class="content-area">
+      <div class="page-content">
+
+
+        <!-- CONTENTS -->
+        {{ if .Content }}
+        <div class='entry'>
+          <div class='container entry-content'>
+            {{ .Content }}
+          </div>
+        </div>
+        {{ end }}
+
+        <div class='container list-container'>
+          <ul class='list'>
+            {{ range .Paginator.Pages }}
+            <li class='item'>
+              <div class='meta'>
+
+                {{- $dateFormat := ( .Site.Params.settings.listDateFormat | default "2006, Jan 02" ) -}}
+                <span>
+                  <span class='screen-reader-text'>{{ i18n "postedOn" }} </span>
+                  <time datetime='{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}'>
+                    {{- .Date.Format $dateFormat -}}
+                  </time>
+                </span>
+
+
+              </div>
+              <header class='item-header'>
+                <h3 class='item-title'>
+                  <a href='{{ .Permalink | relURL }}'>
+                    {{- .Title -}}
+                  </a>
+                </h3>
+              </header>
+            </li>
+            {{ end }}
+          </ul>
+        </div>
+        <!-- CONTENTS -->
+
+
+      </div>
+    </div>
+  <!-- End of Single Page Content -->
+  </div>
+<!-- /Main Content -->
+</div>
+
+{{ end }}

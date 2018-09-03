@@ -1,0 +1,66 @@
+
+{{ define "css" }}
+<link rel="stylesheet" href="/css/syntax.css" type="text/css">
+{{ end }}
+
+{{ define "main" }}
+<!-- Main Content -->
+<div id="main" class="site-main">
+  <!-- Single Page Content -->
+  <div class="single-page-content">
+    <div class="content-area">
+      <div class="page-content">
+        <!-- Blog Entry Content -->
+        {{ if .Params.image }}
+        <div class="blog-post-main-image">
+          <img class="post-image img-responsive" src="{{ .Params.image.url }}" alt="{{ .Params.image.alt }}" />
+        </div>
+        {{ end }}
+
+        <div class="blog-post-content">
+          <h1>{{ .Title }}</h1>
+
+          {{- $dateFormat := ( .Site.Params.settings.listDateFormat | default "02 January, 2006" ) -}}
+          <div class="entry-meta">
+            <span class="date"><a href="#"><i class="fa fa-fw fa-clock-o"></i> {{- .Date.Format $dateFormat -}}</a></span>
+            <span class="divider">|</span>
+            {{ if .Params.Author }}
+            <span class="autor"><a href="#"><i class="fa fa-fw fa-user"></i> {{ .Params.Author }}</a></span>
+            <span class="divider">|</span>
+            {{ end }}
+            <span class="category">
+              <a href="#"><i class="fa fa-fw fa-folder"></i> jQuery</a>
+            </span>
+          </div>
+
+          {{ .Content }}
+
+          <div class="entry-meta entry-tags-share">
+            <!-- Share Buttons -->
+            <div class="btn-group share-buttons pull-right hidden-xs">
+              <a href="#" target="_blank" class="btn"><i class="fa fa-facebook"></i> </a>
+              <a href="#" target="_blank" class="btn"><i class="fa fa-twitter"></i> </a>
+              <a href="#" target="_blank" class="btn"><i class="fa fa-dribbble"></i> </a>
+            </div>
+            <!-- /Share Buttons -->
+            <ul class="tags">
+              <li><a>HTML5</a></li>
+              <li><a>CSS3</a></li>
+              <li><a>jQuery</a></li>
+              <li><a>Ajax</a></li>
+              <li><a>PHP5</a></li>
+            </ul>
+          </div>
+
+          {{ template "_internal/disqus.html" . }}
+
+        </div>
+        <!-- End of Blog Entry Content -->
+      </div>
+    </div>
+  </div>
+  <!-- End of Single Page Content -->
+</div>
+<!-- /Main Content -->
+</div>
+{{ end }}
