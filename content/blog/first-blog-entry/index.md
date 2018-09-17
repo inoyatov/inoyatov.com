@@ -138,15 +138,14 @@ Ad amet irure est magna id mollit Lorem in do duis enim. Excepteur velit nisi ma
 
 Et fugiat ad nisi amet magna labore do cillum fugiat occaecat cillum Lorem proident. In sint dolor ullamco ad do adipisicing amet id excepteur Lorem aliquip sit irure veniam laborum duis cillum. Aliqua occaecat minim cillum deserunt magna sunt laboris do do irure ea nostrud consequat ut voluptate ex.
 
-{{< highlight python >}}
-#!/usr/bin/env python
+<div class="highlight"><pre><code class="python">#!/usr/bin/env python
 
 def main():
     print ('Hello world')
 
 if __name__ == '__main__':
     main()
-{{< /highlight >}}
+</code></pre></div>
 
 Ex amet id ex aliquip id do laborum excepteur exercitation elit sint commodo occaecat nostrud est. Nostrud pariatur esse veniam laborum non sint magna sit laboris minim in id. Aliqua pariatur pariatur excepteur adipisicing irure culpa consequat commodo et ex id ad.
 
