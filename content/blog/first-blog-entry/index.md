@@ -4,8 +4,6 @@ date: 2018-08-13T18:18:28+09:00
 author: "Khamidulla Inoyatov"
 ---
 
-# <a name="top"></a>
-
 * [Headings](#Headings)
 * [Paragraphs](#Paragraphs)
 * [Blockquotes](#Blockquotes)
