@@ -2,7 +2,10 @@
 title: "How to uninstall LibreOffice and install WPS office in Ubuntu 18.04"
 date: 2018-10-03T18:18:28+09:00
 author: "Khamidulla Inoyatov"
-category: Ubuntu
+tags:
+- Ubuntu 18.04 LTS
+- WPS Office
+- LibreOffice
 ---
 
 * [Uninstall LibreOffice](#uninstall-libreoffice)

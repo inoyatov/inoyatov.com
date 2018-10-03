@@ -1,6 +1,7 @@
 ---
 title: "Second Blog Entry"
 date: 2018-08-13T18:18:28+09:00
+draft: true
 ---
 
 lorem ipsum 
