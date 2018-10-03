@@ -28,12 +28,13 @@
             {{ if .Params.Author }}
             <span class="autor"><a href="#"><i class="fa fa-fw fa-user"></i> {{ .Params.Author }}</a></span>
             {{ end }}
-            <!--
+            {{ $taxo := "tags" }}
+            {{ with .Param $taxo }}
             <span class="divider">|</span>
-            <span class="category">
-              <a href="#"><i class="fa fa-fw fa-folder"></i> jQuery</a>
-            </span>
-            -->
+            {{ range $index, $tag := . }}
+              <a href="#"><i class="fa fa-fw fa-folder"></i>{{ $tag }}</a>&nbsp
+            {{- end -}}
+            {{ end }}
           </div>
 
           {{ .Content }}
