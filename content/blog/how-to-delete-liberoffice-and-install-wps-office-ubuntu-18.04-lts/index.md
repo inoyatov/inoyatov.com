@@ -1,18 +1,18 @@
 ---
-title: "How to uninstall LiberOffice and install WPS office in Ubuntu 18.04"
+title: "How to uninstall LibreOffice and install WPS office in Ubuntu 18.04"
 date: 2018-10-03T18:18:28+09:00
 author: "Khamidulla Inoyatov"
 ---
 
-* [Uninstall LiberOffice](#uninstall-liberoffice)
+* [Uninstall LibreOffice](#uninstall-libreoffice)
 * [Install WPS office](#install-wps-office)
 
 ***
 
-# <a name="uninstall-liberoffice"></a>Uninstall LiberOffice
+# <a name="uninstall-libreoffice"></a>Uninstall LibreOffice
 
 Open terminal by using following shortcut <kbd>Ctrl+Alt+t</kbd>, if you do not knew how to do so. 
-Then type following lines in terminal window which will remove all packages related to liberoffice.
+Then type following lines in terminal window which will remove all packages related to libreoffice.
 
 {{< highlight >}}
 sudo apt-get remove --purge libreoffice*
