@@ -18,7 +18,7 @@ tags:
 Open terminal by using following shortcut <kbd>Ctrl+Alt+t</kbd>, if you do not knew how to do so. 
 Then type following lines in terminal window which will remove all packages related to libreoffice.
 
-{{< highlight >}}
+{{< highlight language="text" >}}
 sudo apt-get remove --purge libreoffice*
 sudo apt-get clean
 sudo apt-get autoremove
@@ -38,7 +38,7 @@ Choose proper debian package from "Addresses" section for your Ubuntu installati
 In terminal window navigate to directory where you saved your file using `cd` command. In my case it is
 **Downloads** directory under user's home directory. Then type following command:
 
-{{< highlight >}}
+{{< highlight language="text" >}}
 cd ~/Downloads
 sudo dpkg -i wps-office_10.1.0.6757_amd64.deb
 {{< /highlight >}}
