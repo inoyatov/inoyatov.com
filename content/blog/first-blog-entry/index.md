@@ -2,6 +2,7 @@
 title: "Markdown Test Page"
 date: 2018-08-13T18:18:28+09:00
 author: "Khamidulla Inoyatov"
+draft: true
 ---
 
 * [Headings](#Headings)
