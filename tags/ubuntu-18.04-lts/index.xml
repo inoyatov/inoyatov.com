@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ubuntu 18.04 Lts on Tiny, and Perfect Programmer Blog</title>
+    <link>/tags/ubuntu-18.04-lts/</link>
+    <description>Recent content in Ubuntu 18.04 Lts on Tiny, and Perfect Programmer Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 12 Oct 2018 14:00:00 +0900</lastBuildDate>
+    
+	<atom:link href="/tags/ubuntu-18.04-lts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>How to setup Redis easly for development using docker</title>
+      <link>/blog/how-to-setup-redis-easly-for-development-using-docker/</link>
+      <pubDate>Fri, 12 Oct 2018 14:00:00 +0900</pubDate>
+      
+      <guid>/blog/how-to-setup-redis-easly-for-development-using-docker/</guid>
+      <description>Prerequisites Install Redis  Prerequisites In order to install Redis using docker following requirements must be met:
+$ docker --version Docker version 18.06.0-ce, build 0ffa825 $ docker-compose --version docker-compose version 1.22.0, build f46880fe  Install Redis Open terminal (Ctrl+Alt+t shortcut to open terminal), and navigate to path where you want to create docker compose project for Redis. Create docker-compose.yml file with following content.
+version: &amp;#34;3&amp;#34; services: redis: container_name: redis-4.</description>
+    </item>
+    
+    <item>
+      <title>How to uninstall LibreOffice and install WPS office in Ubuntu 18.04</title>
+      <link>/blog/how-to-delete-liberoffice-and-install-wps-office-ubuntu-18.04-lts/</link>
+      <pubDate>Wed, 03 Oct 2018 18:18:28 +0900</pubDate>
+      
+      <guid>/blog/how-to-delete-liberoffice-and-install-wps-office-ubuntu-18.04-lts/</guid>
+      <description>Uninstall LibreOffice Install WPS office  Uninstall LibreOffice Open terminal by using following shortcut Ctrl+Alt+t, if you do not knew how to do so. Then type following lines in terminal window which will remove all packages related to libreoffice.
+sudo apt-get remove --purge libreoffice* sudo apt-get clean sudo apt-get autoremove  Install WPS office Open your browser and navigate to following downloads page. Choose proper debian package from &amp;ldquo;Addresses&amp;rdquo; section for your Ubuntu installation architecture and download it.</description>
+    </item>
+    
+  </channel>
+</rss>

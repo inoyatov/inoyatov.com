@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+<link rel="shortcut icon" type="image/png" href="/favicon.png"/>
+<meta name="generator" content="Hugo 0.46" />
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Inoyatov Khamidulla's personal website.</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+<meta name="description" content="PRO Card - Material Resume / CV / vCard Template" />
+<meta name="keywords" content="vcard, resposnive, retina, resume, jquery, css3, bootstrap, Material CV, portfolio" />
+<meta name="author" content="lmtheme" />
+<link rel="shortcut icon" href="favicon.ico">
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-90437265-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){
+    dataLayer.push(arguments);
+  }
+  gtag('js', new Date());
+  gtag('config', 'UA-90437265-1');
+</script>
+<link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css">
+<link rel="stylesheet" href="/css/normalize.css" type="text/css">
+<link rel="stylesheet" href="/css/animate.css" type="text/css">
+<link rel="stylesheet" href="/css/transition-animations.css" type="text/css">
+<link rel="stylesheet" href="/css/owl.carousel.css" type="text/css">
+<link rel="stylesheet" href="/css/magnific-popup.css" type="text/css">
+<link rel="stylesheet" href="/css/gruvbox-dark.css" type="text/css">
+<link rel="stylesheet" href="/css/main.css" type="text/css">
+
+
+<link rel="stylesheet" href="/css/syntax.css" type="text/css">
+
+    </head>
+    <body class="material-template"><div class="preloader">
+  <div class="preloader-animation">
+    <div class="preloader-spinner">
+    </div>
+  </div>
+</div>
+<div id="page" class="page">
+</pre>
+<header id="site_header" class="header mobile-menu-hide">
+  <div class="header-content">
+    <div class="site-title-block mobile-hidden">
+      <div class="site-title">Khamidulla <span>Inoyatov</span></div>
+    </div>
+
+    <div class="site-nav">
+
+      <ul id="nav" class="site-main-menu">
+        <li class="">
+          <a href="/">Home</a>
+        </li>
+        <li class="">
+          <a href="/resume">Resume</a>
+        </li>
+        <li class="active">
+          <a href="/blog">Blog</a>
+        </li>
+        <li class="">
+          <a href="/contact">Contact</a>
+        </li>
+      </ul>
+
+    </div>
+
+  </div>
+</header>
+
+
+
+<div class="mobile-header mobile-visible">
+  <div class="mobile-logo-container">
+    <div class="mobile-site-title">Khamidulla Inoyatov</div>
+  </div>
+
+  <a class="menu-toggle mobile-visible">
+    <i class="fa fa-bars"></i>
+  </a>
+</div>
+
+
+<div id="main" class="site-main">
+  
+  <div class="single-page-content">
+    <div class="content-area">
+      <div class="page-content">
+        
+        
+
+        <div class="blog-post-content">
+          <a href="#top"></a>
+          <h1>How to setup Redis easly for development using docker</h1><div class="entry-meta">
+            <span class="date"><a href="#"><i class="fa fa-fw fa-clock-o"></i>12 October, 2018</a></span>
+            <span class="divider">|</span>
+            
+            <span class="autor"><a href="#"><i class="fa fa-fw fa-user"></i> Khamidulla Inoyatov</a></span>
+            
+            
+            
+            <span class="divider">|</span>
+            
+              <a href="#"><i class="fa fa-fw fa-folder"></i>Ubuntu 18.04 LTS</a>&nbsp
+              <a href="#"><i class="fa fa-fw fa-folder"></i>Docker</a>&nbsp
+              <a href="#"><i class="fa fa-fw fa-folder"></i>Redis</a>&nbsp
+          </div>
+
+          
+
+<ul>
+<li><a href="#prerequisites">Prerequisites</a></li>
+<li><a href="#install-redis">Install Redis</a></li>
+</ul>
+
+<hr />
+
+<h1 id="a-name-prerequisets-a-prerequisites"><a name="prerequisets"></a>Prerequisites</h1>
+
+<p>In order to install Redis using docker following requirements must be met:</p>
+
+<div class="highlight">
+  <pre><code class="text">$ docker --version
+Docker version 18.06.0-ce, build 0ffa825
+$ docker-compose --version
+docker-compose version 1.22.0, build f46880fe</code></pre>
+</div>
+
+
+<h1 id="a-name-nstall-redis-a-install-redis"><a name="nstall-redis"></a>Install Redis</h1>
+
+<p>Open terminal (<kbd>Ctrl+Alt+t</kbd> shortcut to open terminal), and navigate to path where you want to create
+docker compose project for Redis. Create <em>docker-compose.yml</em> file with following content.</p>
+
+<div class="highlight">
+  <pre><code class="yaml">version: &#34;3&#34;
+
+services:
+    redis:
+        container_name: redis-4.0.11 
+        image: redis:4.0.11
+        restart: always
+        ports:
+            - &#34;6379:6379/tcp&#34;</code></pre>
+</div>
+
+
+<p>If you noticied we are binding <strong>6379/tcp</strong> port to external port. If you want to control port by firewall you
+should remove ports options from docker compose. Which will limit Redis service to local machine and other docker
+containers. Moreover if you want to prevent anonymous access to Redis server you can provide password as following example:</p>
+
+<div class="highlight">
+  <pre><code class="yaml">version: &#34;3&#34;
+
+services:
+    redis:
+        container_name: redis-4.0.11 
+        image: redis:4.0.11
+        restart: always
+        command: redis-server --requirepass &lt;password&gt;
+        ports:
+            - &#34;6379:6379/tcp&#34;</code></pre>
+</div>
+
+
+<p>Finally in order to start and stop Redis server in background following command can be executed:</p>
+
+<div class="highlight">
+  <pre><code class="text">$ docker-compose up -d
+$ docker-compose down </code></pre>
+</div>
+
+
+<p>if you will not provide <strong><code>-d</code></strong> option Redis container will be lunched in foreground. That&rsquo;s all Folks!</p>
+
+
+          <div class="entry-meta entry-tags-share">
+            
+            <div class="btn-group share-buttons pull-right hidden-xs">
+              <a href="#" target="_blank" class="btn"><i class="fa fa-facebook"></i> </a>
+              <a href="#" target="_blank" class="btn"><i class="fa fa-twitter"></i> </a>
+              <a href="#" target="_blank" class="btn"><i class="fa fa-dribbble"></i> </a>
+            </div>
+            
+            <ul class="tags">
+              <li><a>HTML5</a></li>
+              <li><a>CSS3</a></li>
+              <li><a>jQuery</a></li>
+              <li><a>Ajax</a></li>
+              <li><a>PHP5</a></li>
+            </ul>
+          </div>
+
+          <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "inoyatov-khamidulla" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  
+</div>
+
+</div>
+
+      </div><footer>
+  <div class="copyrights">© 2017 All rights reserved.<span class="hidden">Material template by LMPixels</span></div>
+</footer>
+<script src="/js/jquery-2.1.3.min.js"></script>
+<script src="/js/modernizr.custom.js"></script>
+
+<script src='https://www.google.com/recaptcha/api.js'></script>
+
+<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+
+
+<script type="text/javascript" src="/js/imagesloaded.pkgd.min.js"></script>
+<script type="text/javascript" src="/js/validator.js"></script>
+<script type="text/javascript" src="/js/jquery.shuffle.min.js"></script>
+<script type="text/javascript" src="/js/masonry.pkgd.min.js"></script>
+<script type="text/javascript" src="/js/owl.carousel.min.js"></script>
+<script type="text/javascript" src="/js/jquery.magnific-popup.min.js"></script>
+<script type="text/javascript" src="/js/jquery.hoverdir.js"></script>
+
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+<script type="text/javascript" src="/js/jquery.googlemap.js"></script>
+
+<script type="text/javascript" src="/js/highlight.pack.js"></script>
+<script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+
+<script type="text/javascript" src="/js/main.js"></script>
+</body>
+</html>
